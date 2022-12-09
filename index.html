@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
+    <title>JS ludo</title>
+</head>
+<body>
+    <div class="container">
+        <h1>JS LUDO GAME</h1>
+        
+        <div class="player">
+            <div class="player1">
+                <h2>PLAYER 1</h2>
+                <img  src="img/dice1.png" alt="" id = "play1">
+            </div>
+             <div class="player2">
+            <h2>PLAYER 2</h2>
+            <img src="img/dice1.png" alt="" id = "play2">
+        </div>
+        </div>
+
+        <button class="btn" id="btn">CLICK ME</button>
+
+        <div id="result">
+            <h3>Result</h3>
+        </div>
+    </div>
+</body>
+
+<script>
+    let btn = document.getElementById("btn");
+    btn.addEventListener("click", change);
+        function change() {
+            let p1 = Math.floor(Math.random()*6)+1;
+            let p2 = Math.floor(Math.random()*6)+1;
+            let dice1 = `img/dice${p1}.png`
+            let dice2 = `img/dice${p2}.png`
+            document.getElementById("play1").setAttribute("src", dice1);
+            document.getElementById("play2").setAttribute("src", dice2);
+            result(p1,p2);
+        }
+        function result(p1,p2) {
+            let h3 = document.querySelector('h3');
+            if(p1 == p2){
+                h3.innerHTML = "DRAW";
+            }
+            else if(p1 > p2){
+               h3.innerHTML = "PLAYER1 WON :)";
+            }
+            else if(p1 < p2){
+                h3.innerHTML = "PLAYER2 WON :)";
+            }
+        }
+</script> 
+</html>
+        
